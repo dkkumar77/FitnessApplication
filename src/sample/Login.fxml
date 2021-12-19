@@ -10,14 +10,34 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginController">
    <children>
-      <JFXTextField fx:id="login" alignment="CENTER" focusColor="#6f7997" labelFloat="true" layoutX="219.0" layoutY="107.0" onKeyPressed="#handleEnterL" promptText="Login" />
-      <JFXPasswordField fx:id="password" alignment="CENTER" labelFloat="true" layoutX="219.0" layoutY="163.0" onKeyPressed="#handleEnter" promptText="Password" />
-      <Label alignment="CENTER" layoutX="100.0" layoutY="37.0" prefHeight="47.0" prefWidth="388.0" text="Fitness Tracker">
-         <font>
-            <Font name="MuktaMahee Light" size="20.0" />
-         </font>
-      </Label>
-      <JFXHamburger fx:id="touch" layoutX="556.0" layoutY="14.0" onTouchPressed="#handleHover" />
-      <JFXButton fx:id="submit" layoutX="392.0" layoutY="200.0" onAction="#handleSubmit" text="Submit" />
+      <AnchorPane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <JFXTextField fx:id="btnLogin" alignment="CENTER" focusColor="#6f7997" labelFloat="true" layoutX="228.0" layoutY="115.0" onKeyPressed="#handleLoginEnter" promptText="Login" />
+            <JFXPasswordField fx:id="btnPassword" alignment="CENTER" labelFloat="true" layoutX="228.0" layoutY="173.0" onKeyPressed="#handlePasswordEnter" promptText="Password" />
+            <Label alignment="CENTER" layoutX="107.0" layoutY="51.0" prefHeight="47.0" prefWidth="388.0" text="Fitness Tracker">
+               <font>
+                  <Font name="MuktaMahee Light" size="20.0" />
+               </font>
+            </Label>
+            <JFXHamburger fx:id="hmbMenu" layoutX="14.0" layoutY="14.0" onTouchPressed="#handleHover" />
+            <JFXButton fx:id="btnSubmit" layoutX="387.0" layoutY="208.0" onAction="#handleSubmit" text="Submit" />
+            <JFXButton fx:id="btnForgotPass" layoutX="256.0" layoutY="211.0" onAction="#handleForgotPass" text="Forgot Password?" textFill="#65beeb">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </JFXButton>
+            <Label fx:id="labelUserWarning" layoutX="387.0" layoutY="120.0" text="" textFill="#f24646">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelPasswordWarning" layoutX="388.0" layoutY="180.0" text="" textFill="RED">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
+
