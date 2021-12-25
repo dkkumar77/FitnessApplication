@@ -75,7 +75,10 @@ public class LoginController {
     }
 
     @FXML
-    void handleSubmit(ActionEvent event) {
+    void handleSubmit(ActionEvent event) throws  java.sql.SQLException, ClassNotFoundException, java.io.IOException{
+
+        Database e = new Database();
+
         if(event.getSource().equals(btnSubmit))
         {
 
@@ -88,6 +91,33 @@ public class LoginController {
                     labelPasswordWarning.setText("Can't be empty");
 
                 }
+            }
+
+
+                /**
+                 * VALIDATION
+                 */
+
+                if(btnPassword.getText().equals(e.getPassword(btnLogin.getText()))){
+
+                    javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("Random.fxml"));
+                    javafx.scene.Parent root = loader.load();
+
+                    javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                    Scene scene = new javafx.scene.Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+
+
+
+
+                }
+                else{
+                    btnLogin.setText("");
+                    btnPassword.setText("");
+
+                }
+
                 btnLogin.setText("");
                 btnPassword.setText("");
 
