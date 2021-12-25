@@ -13,7 +13,7 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class CreateAccountController {
+public class  CreateAccountController {
 
     @FXML
     private JFXTextField txtFirstName;
@@ -107,7 +107,8 @@ public class CreateAccountController {
         return true;
 
     }
-    
+
+    @FXML
     public void handleBack(javafx.event.ActionEvent actionEvent) throws IOException
     {
 

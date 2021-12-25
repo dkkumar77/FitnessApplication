@@ -64,10 +64,22 @@ public class LoginController {
     }
 
     @FXML
-    void handleForgotPass(ActionEvent event)
+    void handleForgotPass(ActionEvent event) throws IOException
     {
         if(event.getSource().equals(btnForgotPass))
         {
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("ForgotPassword.fxml"));
+            javafx.scene.Parent root = loader.load();
+
+            javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            Scene scene = new javafx.scene.Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+
+
+
+
 
 
 
@@ -100,7 +112,7 @@ public class LoginController {
 
                 if(btnPassword.getText().equals(e.getPassword(btnLogin.getText()))){
 
-                    javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("Random.fxml"));
+                    javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("newClass.fxml"));
                     javafx.scene.Parent root = loader.load();
 
                     javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -131,6 +143,10 @@ public class LoginController {
             }
 
         }
-    }
+
+
+
+
+}
 
 

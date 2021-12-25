@@ -31,6 +31,7 @@ class Database {
             Statement st = connection.createStatement();
 
             st.executeUpdate("CREATE TABLE LOGIN (username VARCHAR(255), password VARCHAR(255), email VARCHAR(255), dob VARCHAR(255), firstname VARCHAR(255), lastname VARCHAR(255))");
+            st.executeUpdate("CREATE TABLE CODE(username VARCHAR(255), codeval VARCHAR(255))");
 
 
         } catch (SQLException e) {
@@ -70,9 +71,21 @@ class Database {
 
         s.executeUpdate(state);
 
+        s.executeUpdate("insert into CODE(username, codeval) VALUES (" + "\"" + username + "\"," + "0)");
+
+
 
     }
 
+
+    public void updateCode(String username, String code) throws SQLException {
+        Statement e = connection.createStatement();
+        String s = "update CODE set codeval = " + code + " where username = " + username;
+        System.out.println(s);
+        e.executeUpdate("update CODE set codeval = " + "\"" + code + "\"" + " where username = " + "\"" + username + "\"");
+
+
+    }
 
     public String getPassword(String username) throws SQLException {
 
@@ -192,6 +205,27 @@ class Database {
 
     }
 
+    public String getCode(String username) throws SQLException {
+
+        if (usernameExists(username)) {
+            Statement rs = connection.createStatement();
+
+
+            ResultSet result = rs.executeQuery("select codeval FROM CODE WHERE username = " + "\"" + username + "\";");
+            String c = "";
+
+            while (result.next()) {
+
+                c = result.getString("codeval");
+            }
+
+            return c;
+
+
+        }
+        return null;
+    }
+
 
     public boolean usernameExists(String username) throws SQLException {
 
@@ -212,6 +246,8 @@ class Database {
 
     }
 
+
+
     public void print() throws SQLException {
 
         Statement stmt = connection.createStatement();
@@ -227,6 +263,18 @@ class Database {
                     + result.getString("lastname"));
         }
     }
+    public void printCode() throws SQLException {
+
+        Statement stmt = connection.createStatement();
+
+        String strSelect = "select * from CODE";
+        ResultSet result = stmt.executeQuery(strSelect);
+        while (result.next()) {
+            System.out.println(result.getString("username") + ", "
+                    + result.getString("codeval"));
+        }
+    }
+
 
 
 
@@ -242,11 +290,7 @@ class Database {
     }
         public static void main (String[]args) throws SQLException, ClassNotFoundException {
             Database e = new Database();
-            //e.drop();
 
-            e.testRetrieval("shade987","password","dk.kumar77@yahoo.com","1","deepak", "kumar");
-
-            //e.print();
 
 
 
