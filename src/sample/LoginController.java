@@ -10,10 +10,10 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.TouchEvent;
-
 import javax.swing.*;
 
-public class LoginController {
+public class LoginController
+{
 
     @FXML
     private JFXTextField btnLogin;
@@ -25,39 +25,40 @@ public class LoginController {
     private JFXHamburger hmbMenu;
 
     @FXML
-    private JFXButton btnSubmit;
-
-    @FXML
-    private JFXButton btnForgotPass;
+    private JFXButton btnSubmit, btnForgotPass, btnCreate;
 
     @FXML
     private Label labelUserWarning, labelPasswordWarning;
 
 
     @FXML
-    void handlePasswordEnter(KeyEvent event) {
+    void handlePasswordEnter(KeyEvent event)
+    {
 
-        if(event.getCode().equals(KeyCode.ENTER)){
-            btnPassword.setText("");
-            btnLogin.setText("");
-
-
-        }
-    }
-
-    @FXML
-    void handleLoginEnter(KeyEvent event) {
-
-        if(event.getCode().equals(KeyCode.ENTER)){
+        if(event.getCode().equals(KeyCode.ENTER))
+        {
             btnPassword.setText("");
             btnLogin.setText("");
 
         }
     }
 
+    @FXML
+    void handleLoginEnter(KeyEvent event)
+    {
+
+        if(event.getCode().equals(KeyCode.ENTER))
+        {
+            btnPassword.setText("");
+            btnLogin.setText("");
+
+        }
+    }
+
 
     @FXML
-    void handleHover(TouchEvent event) {
+    void handleHover(TouchEvent event)
+    {
 
 
 
@@ -76,30 +77,27 @@ public class LoginController {
             stage.setScene(scene);
             stage.show();
 
-
-
-
-
-
-
-
         }
     }
 
     @FXML
-    void handleSubmit(ActionEvent event) throws  java.sql.SQLException, ClassNotFoundException, java.io.IOException{
+    void handleSubmit(ActionEvent event) throws  java.sql.SQLException, ClassNotFoundException, java.io.IOException
+    {
 
         Database e = new Database();
 
         if(event.getSource().equals(btnSubmit))
         {
 
-            if(btnLogin.getText().equals("") || btnPassword.getText().equals("")) {
-                if (btnLogin.getText().equals("")) {
+            if(btnLogin.getText().equals("") || btnPassword.getText().equals(""))
+            {
+                if (btnLogin.getText().equals(""))
+                {
                     labelUserWarning.setText("Can't be empty");
 
                 }
-                if (btnPassword.getText().equals("")) {
+                if (btnPassword.getText().equals(""))
+                {
                     labelPasswordWarning.setText("Can't be empty");
 
                 }
@@ -110,7 +108,8 @@ public class LoginController {
                  * VALIDATION
                  */
 
-                if(btnPassword.getText().equals(e.getPassword(btnLogin.getText()))){
+                if(btnPassword.getText().equals(e.getPassword(btnLogin.getText())))
+                {
 
                     javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("newClass.fxml"));
                     javafx.scene.Parent root = loader.load();
@@ -121,10 +120,9 @@ public class LoginController {
                     stage.show();
 
 
-
-
                 }
-                else{
+                else
+                {
                     btnLogin.setText("");
                     btnPassword.setText("");
 
@@ -134,11 +132,11 @@ public class LoginController {
                 btnPassword.setText("");
 
             }
-            else{
+
+            else
+            {
                 labelUserWarning.setText("");
                 labelPasswordWarning.setText("");
-
-
 
             }
 

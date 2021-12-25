@@ -80,8 +80,8 @@ public class ForgotPasswordController {
                 properties.put("mail.smtp.host", "smtp.gmail.com");
                 properties.put("mail.smtp.port", "587");
 
-                String sender = "ghost.boys.inc@gmail.com";
-                String senderPassword = "Tyrantboys1!";
+                String sender = "DSFitnessApp@gmail.com";
+                String senderPassword = "Tyrantboys64!";
 
                 Session session = Session.getInstance(properties, new Authenticator() {
                     @Override

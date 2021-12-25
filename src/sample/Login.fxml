@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginController">
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="600.0">
+      <AnchorPane layoutX="1.0" prefHeight="400.0" prefWidth="600.0">
          <children>
             <JFXTextField fx:id="btnLogin" alignment="CENTER" focusColor="#6f7997" labelFloat="true" layoutX="228.0" layoutY="115.0" onKeyPressed="#handleLoginEnter" promptText="Login" />
             <JFXPasswordField fx:id="btnPassword" alignment="CENTER" labelFloat="true" layoutX="228.0" layoutY="173.0" onKeyPressed="#handlePasswordEnter" promptText="Password" />
@@ -39,7 +39,7 @@
                   <Font size="10.0" />
                </font>
             </Label>
-            <JFXButton fx:id="create" layoutX="243.0" layoutY="232.0" onAction="#handleCreate" prefHeight="27.0" prefWidth="115.0" text="Create Account" textFill="#65beeb">
+            <JFXButton fx:id="btnCreate" layoutX="243.0" layoutY="232.0" onAction="#handleCreate" prefHeight="27.0" prefWidth="115.0" text="Create Account" textFill="#65beeb">
                <font>
                   <Font size="10.0" />
                </font>

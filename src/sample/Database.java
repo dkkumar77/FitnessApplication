@@ -30,7 +30,8 @@ class Database {
 
             Statement st = connection.createStatement();
 
-            st.executeUpdate("CREATE TABLE LOGIN (username VARCHAR(255), password VARCHAR(255), email VARCHAR(255), dob VARCHAR(255), firstname VARCHAR(255), lastname VARCHAR(255))");
+            st.executeUpdate("CREATE TABLE LOGIN (username VARCHAR(255), password VARCHAR(255), " +
+                    "email VARCHAR(255), dob VARCHAR(255), firstname VARCHAR(255), lastname VARCHAR(255))");
             st.executeUpdate("CREATE TABLE CODE(username VARCHAR(255), codeval VARCHAR(255))");
 
 
@@ -62,7 +63,8 @@ class Database {
     }
 
 
-    public void addData(String username, String password, String email, String dob, String firstname, String lastname) throws SQLException {
+    public void addData(String username, String password, String email, String dob, String firstname, String lastname)
+            throws SQLException {
 
 
         Statement s = connection.createStatement();
@@ -290,7 +292,7 @@ class Database {
     }
         public static void main (String[]args) throws SQLException, ClassNotFoundException {
             Database e = new Database();
-
+            e.drop();
 
 
 
