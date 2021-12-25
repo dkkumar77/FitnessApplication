@@ -1,30 +1,85 @@
 package sample;
-
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+class Database {
 
 
-public class Database {
+    Connection connection;
 
-    public static void createNewDatabase() {
+    Database() throws SQLException {
+        if (!exists()) {
+            createDatabase();
 
-        String url = "jdbc:sqlite:C:/sqlite/db/database.db";
 
-        try (Connection conn = DriverManager.getConnection(url)) {
-            if (conn != null) {
-                DatabaseMetaData meta = conn.getMetaData();
+        }
+
+
+    }
+
+    final String DB_URL = "jdbc:mysql://localhost:3306/";
+    final String USER = "root";
+    final String PASS = "Tyrantboys1";
+
+
+    public boolean exists() throws SQLException {
+
+        String databaseName = "";
+
+        try {
+            connection = DriverManager.getConnection(DB_URL , USER , PASS);
+
+            ResultSet resultSet = connection.getMetaData().getCatalogs();
+
+
+            while (resultSet.next()) {
+                databaseName = resultSet.getString(1);
             }
 
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            if (databaseName != null) {
+                resultSet.close();
+                return true;
+            }
+
         }
+        catch(NullPointerException e )
+
+        {
+            e.printStackTrace();
+
+
+        }
+
+        return false;
+
     }
 
+    public void createDatabase() {
 
-    public static void main(String[] args) {
-        createNewDatabase();
+        try {
+            connection = DriverManager.getConnection(DB_URL + USER + PASS);
+            Statement stmt = connection.createStatement();
+            stmt.executeQuery("CREATE DATABASE FitnessData");
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+
+        }
+
+
+    }
+
+    /**
+     * USERNAME
+     * PASSWORD
+     * <p>
+     * TABLE - > DATES - > WEIGHT | HEIGHT | CALORIE INTAKE | PROTEIN | FAT | CARB
+     * <p>
+     * <p>
+     * <p>
+     * /
+     */
+
+    public static void main(String[] args) throws SQLException {
+        Database e = new Database();
+
     }
 }
-
