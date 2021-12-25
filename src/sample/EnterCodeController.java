@@ -8,7 +8,8 @@ import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
-public class EnterCodeController {
+public class EnterCodeController
+{
 
     @FXML
     private JFXButton close;
@@ -24,22 +25,23 @@ public class EnterCodeController {
 
 
     @FXML
-    void handleClose(ActionEvent event) {
+    void handleClose(ActionEvent event)
+    {
 
         Stage stage = (Stage) close.getScene().getWindow();
         stage.close();
 
-
-
-
     }
 
     @FXML
-    void handleSubmit(ActionEvent event) throws SQLException, ClassNotFoundException {
-        if(event.getSource().equals(submit)){
+    void handleSubmit(ActionEvent event) throws SQLException, ClassNotFoundException
+    {
+        if(event.getSource().equals(submit))
+        {
             Database e = new Database();
 
-            if(code.getText().equals(e.getCode(this.username))){
+            if(code.getText().equals(e.getCode(this.username)))
+            {
                 Stage stage = (Stage) close.getScene().getWindow();
                 stage.close();
 
@@ -49,8 +51,8 @@ public class EnterCodeController {
 
     }
 
-    public void setValue(String username) {
+    public void setValue(String username)
+    {
         this.username = username;
-
     }
 }

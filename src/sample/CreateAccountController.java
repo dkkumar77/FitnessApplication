@@ -13,28 +13,14 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class  CreateAccountController {
+public class  CreateAccountController
+{
 
     @FXML
-    private JFXTextField txtFirstName;
+    private JFXTextField txtFirstName, txtLastName, txtEmail, txtDOB, txtUsername;
 
     @FXML
-    private JFXTextField txtLastName;
-
-    @FXML
-    private JFXTextField txtEmail;
-
-    @FXML
-    private JFXTextField txtDOB;
-
-    @FXML
-    private JFXTextField txtUsername;
-
-    @FXML
-    private JFXButton btnSubmit;
-
-    @FXML
-    private JFXButton btnBack;
+    private JFXButton btnSubmit, btnBack;
 
     @FXML
     private JFXPasswordField txtPassword;
@@ -81,18 +67,19 @@ public class  CreateAccountController {
 
             }
 
-        else{
+        else
+        {
             warning.setVisible(true);
-
         }
 
-            }
+        }
 
         }
 
     }
 
-    private boolean verifyEmail(String email){
+    private boolean verifyEmail(String email)
+    {
 
         try
         {

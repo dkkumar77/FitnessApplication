@@ -22,20 +22,18 @@ import java.util.Properties;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class ForgotPasswordController {
+public class ForgotPasswordController
+{
 
     @FXML
     private JFXTextField username;
 
     @FXML
-    private JFXButton submit;
+    private JFXButton submit, back;
 
     @FXML
-    private JFXButton back;
-
-    @FXML
-    public void handleBack(javafx.event.ActionEvent actionEvent) throws IOException {
-
+    public void handleBack(javafx.event.ActionEvent actionEvent) throws IOException
+    {
 
         javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("Login.fxml"));
         javafx.scene.Parent root = loader.load();
@@ -47,7 +45,8 @@ public class ForgotPasswordController {
 
     }
 
-    private boolean verifyEmail(String email) {
+    private boolean verifyEmail(String email)
+    {
 
         try {
             InternetAddress e = new InternetAddress(email);
