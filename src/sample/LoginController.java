@@ -6,11 +6,13 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.TouchEvent;
 import javax.swing.*;
+import java.io.IOException;
 
 public class LoginController
 {
@@ -29,6 +31,24 @@ public class LoginController
 
     @FXML
     private Label labelUserWarning, labelPasswordWarning;
+
+
+    @FXML
+    void handleCreate(ActionEvent event) throws IOException
+    {
+        if(event.getSource().equals(btnCreate))
+        {
+
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("CreateAccount.fxml"));
+            javafx.scene.Parent root = loader.load();
+
+            javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            Scene scene = new javafx.scene.Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        }
+    }
 
 
     @FXML
