@@ -36,8 +36,12 @@
                   <Font size="10.0" />
                </font>
             </Label>
+            <JFXButton fx:id="create" layoutX="243.0" layoutY="232.0" onAction="#handleCreate" prefHeight="27.0" prefWidth="115.0" text="Create Account" textFill="#65beeb">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
    </children>
 </AnchorPane>
-
