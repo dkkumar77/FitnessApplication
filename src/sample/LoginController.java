@@ -11,8 +11,9 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.TouchEvent;
-import javax.swing.*;
+
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class LoginController
 {
@@ -77,7 +78,7 @@ public class LoginController
 
 
     @FXML
-    void handleHover(TouchEvent event)
+    void handleHover(TouchEvent event)  // Hamburger menu
     {
 
 
@@ -131,7 +132,7 @@ public class LoginController
                 if(btnPassword.getText().equals(e.getPassword(btnLogin.getText())))
                 {
 
-                    javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("newClass.fxml"));
+                    javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("Homepage.fxml"));
                     javafx.scene.Parent root = loader.load();
 
                     javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -161,8 +162,6 @@ public class LoginController
             }
 
         }
-
-
 
 
 }

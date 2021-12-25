@@ -12,10 +12,7 @@ public class EnterCodeController
 {
 
     @FXML
-    private JFXButton close;
-
-    @FXML
-    private JFXButton submit;
+    private JFXButton close, submit;
 
 
     @FXML
@@ -44,7 +41,6 @@ public class EnterCodeController
             {
                 Stage stage = (Stage) close.getScene().getWindow();
                 stage.close();
-
             }
         }
 
@@ -55,4 +51,6 @@ public class EnterCodeController
     {
         this.username = username;
     }
+
+
 }

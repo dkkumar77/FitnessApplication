@@ -40,14 +40,12 @@ public class  CreateAccountController
                 || txtPassword.getText().equals("") || txtDOB.getText().equals("") || txtUsername.getText().equals(""))
         {
             warning.setVisible(true);
-
         }
         else
         {
 
             if (verifyEmail(txtEmail.getText()))
             {
-
 
                 Database e = new Database();
 

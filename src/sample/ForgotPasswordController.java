@@ -138,17 +138,18 @@ public class ForgotPasswordController
     }
 
     private Message message(Session session, String receiver, String code) {
-        try {
+        try
+        {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("DSFitnessApp@gmail.com"));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(receiver));
             message.setSubject("Verify Email");
             message.setText("Code is:  \n" + code);
             return message;
-        } catch (MessagingException e) {
+        } catch (MessagingException e)
+        {
             e.printStackTrace();
         }
-
         return null;
     }
 
