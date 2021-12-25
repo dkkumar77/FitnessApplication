@@ -62,13 +62,17 @@ public class ForgotPasswordController
 
 
     @FXML
-    void handleSubmit(ActionEvent actionEvent) throws IOException, ClassNotFoundException, SQLException, MessagingException {
+    void handleSubmit(ActionEvent actionEvent) throws IOException, ClassNotFoundException, SQLException, MessagingException
+    {
 
 
-        if (actionEvent.getSource().equals(submit)) {
+        if (actionEvent.getSource().equals(submit))
+        {
 
             Database e = new Database();
-            if (e.usernameExists(username.getText())) {
+            if (e.usernameExists(username.getText()))
+            {
+
                 String email = e.getEmail(username.getText());
 
                 Properties properties = new Properties();
@@ -137,7 +141,8 @@ public class ForgotPasswordController
 
     }
 
-    private Message message(Session session, String receiver, String code) {
+    private Message message(Session session, String receiver, String code)
+    {
         try
         {
             Message message = new MimeMessage(session);

@@ -38,7 +38,8 @@ public class EnterCodeController
     }
 
     @FXML
-    void handleSubmit(ActionEvent actionEvent) throws SQLException, ClassNotFoundException, IOException {
+    void handleSubmit(ActionEvent actionEvent) throws SQLException, ClassNotFoundException, IOException
+    {
         if(actionEvent.getSource().equals(submit))
         {
             Database e = new Database();
@@ -58,6 +59,8 @@ public class EnterCodeController
                 stage2.setMaxWidth(300);
                 stage2.setMinWidth(300);
                 ChangePasswordController controller = fxmlLoader.getController();
+                controller.initializeUsername(username);;
+
 
 
                 AtomicReference<Double> xOffset = new AtomicReference<>((double) 0);
