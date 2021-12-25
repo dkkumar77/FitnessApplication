@@ -1,4 +1,4 @@
-package sample;
+package sample.controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -9,7 +9,6 @@ import javafx.scene.control.Label;
 
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -55,7 +54,7 @@ public class  CreateAccountController
                         txtLastName.getText());
 
 
-                javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("Login.fxml"));
+                javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("src/sample/model/Login.fxml"));
                 javafx.scene.Parent root = loader.load();
 
                 javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -98,7 +97,7 @@ public class  CreateAccountController
     {
 
 
-        javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("Login.fxml"));
+        javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("src/sample/model/Login.fxml"));
         javafx.scene.Parent root = loader.load();
 
         javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();

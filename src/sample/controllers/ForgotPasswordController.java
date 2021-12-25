@@ -1,4 +1,4 @@
-package sample;
+package sample.controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -16,7 +16,6 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.io.IOException;
-import java.io.InvalidClassException;
 import java.sql.SQLException;
 import java.util.Properties;
 import java.util.Random;

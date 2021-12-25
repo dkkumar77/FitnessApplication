@@ -1,4 +1,4 @@
-package sample;
+package sample.controllers;
 import java.sql.*;
 
 class Database {

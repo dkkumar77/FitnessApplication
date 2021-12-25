@@ -1,4 +1,4 @@
-package sample;
+package sample.controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXHamburger;
@@ -13,7 +13,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.TouchEvent;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 public class LoginController
 {
