@@ -1,5 +1,6 @@
-package sample.controllers;
+package codebase.MODEL;
 
+import animatefx.animation.Wobble;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXPasswordField;
@@ -39,7 +40,7 @@ public class LoginController
         if(event.getSource().equals(btnCreate))
         {
 
-            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("CreateAccount.fxml"));
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("FXML/CreateAccount.fxml"));
             javafx.scene.Parent root = loader.load();
 
             javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -89,7 +90,7 @@ public class LoginController
     {
         if(event.getSource().equals(btnForgotPass))
         {
-            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("ForgotPassword.fxml"));
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("FXML/ForgotPassword.fxml"));
             javafx.scene.Parent root = loader.load();
 
             javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -113,11 +114,13 @@ public class LoginController
             {
                 if (btnLogin.getText().equals(""))
                 {
+                    new Wobble(btnSubmit).play();
                     labelUserWarning.setText("Can't be empty");
 
                 }
                 if (btnPassword.getText().equals(""))
                 {
+                    new Wobble(btnSubmit).play();
                     labelPasswordWarning.setText("Can't be empty");
 
                 }
@@ -131,7 +134,8 @@ public class LoginController
                 if(btnPassword.getText().equals(e.getPassword(btnLogin.getText())))
                 {
 
-                    javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("Homepage.fxml"));
+
+                    javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("FXML/Homepage.fxml"));
                     javafx.scene.Parent root = loader.load();
 
                     javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();

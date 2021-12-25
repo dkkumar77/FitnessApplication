@@ -1,4 +1,4 @@
-package sample.controllers;
+package codebase.MODEL;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -34,7 +34,7 @@ public class ForgotPasswordController
     public void handleBack(javafx.event.ActionEvent actionEvent) throws IOException
     {
 
-        javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("Login.fxml"));
+        javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("FXML/Login.fxml"));
         javafx.scene.Parent root = loader.load();
 
         javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
@@ -104,7 +104,7 @@ public class ForgotPasswordController
                 
 
 
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EnterCode.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXML/EnterCode.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root));

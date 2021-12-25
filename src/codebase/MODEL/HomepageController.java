@@ -1,4 +1,4 @@
-package sample.controllers;
+package codebase.MODEL;
 
 public class HomepageController
 {

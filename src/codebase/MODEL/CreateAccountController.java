@@ -1,4 +1,4 @@
-package sample.controllers;
+package codebase.MODEL;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -54,7 +54,7 @@ public class  CreateAccountController
                         txtLastName.getText());
 
 
-                javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("src/sample/model/Login.fxml"));
+                javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("FXML/Login.fxml"));
                 javafx.scene.Parent root = loader.load();
 
                 javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -97,7 +97,7 @@ public class  CreateAccountController
     {
 
 
-        javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("src/sample/model/Login.fxml"));
+        javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("FXML/Login.fxml"));
         javafx.scene.Parent root = loader.load();
 
         javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();

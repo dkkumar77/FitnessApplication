@@ -8,5 +8,9 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jar master" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-8.0.27" level="project" />
+    <orderEntry type="library" name="jfoenix-8.0.7" level="project" />
+    <orderEntry type="library" name="mail-1.4.7" level="project" />
+    <orderEntry type="library" name="AnimateFX-1.2.1" level="project" />
   </component>
 </module>
