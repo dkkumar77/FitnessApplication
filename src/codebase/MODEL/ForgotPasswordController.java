@@ -77,6 +77,8 @@ public class ForgotPasswordController
                 properties.put("mail.smtp.starttls.enable", "true");
                 properties.put("mail.smtp.host", "smtp.gmail.com");
                 properties.put("mail.smtp.port", "587");
+                properties.put("mail.smtp.starttls.enable", "true");
+
 
                 String sender = "DSFitnessApp@gmail.com";
                 String senderPassword = "Tyrantboys64!";
@@ -101,8 +103,6 @@ public class ForgotPasswordController
 
                 Transport.send(message);
                 
-                
-
 
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXML/EnterCode.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
@@ -131,6 +131,7 @@ public class ForgotPasswordController
                 });
                 stage.initModality(Modality.APPLICATION_MODAL);
                 stage.show();
+
             }
         }
 

@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="mail-1.4.7">
+  <library name="javax.mail">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Downloads/mail-1.4.7.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/javax.mail.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
