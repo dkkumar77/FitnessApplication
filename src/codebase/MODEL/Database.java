@@ -13,8 +13,6 @@ class Database
     Database() throws SQLException, ClassNotFoundException
     {
         connect();
-
-
     }
 
     /**
@@ -39,7 +37,8 @@ class Database
             if (e.getErrorCode() == 1007)
             {
                 this.connection = DriverManager.getConnection(DB_URL + "FitnessData", USER, PASS);
-            } else
+            }
+            else
             {
                 e.printStackTrace();
             }
@@ -84,6 +83,12 @@ class Database
 
     }
 
+    /**
+     *
+     * @param username
+     * @param password
+     * @throws SQLException
+     */
     public void updatePassword(String username, String password) throws SQLException
     {
         Statement e = connection.createStatement();
@@ -158,6 +163,12 @@ class Database
         return null;
     }
 
+    /**
+     *
+     * @param username
+     * @return
+     * @throws SQLException
+     */
     public String getFirstName(String username) throws SQLException
     {
         if (usernameExists(username))
@@ -227,12 +238,14 @@ class Database
      * @return
      * @throws SQLException
      */
-    public boolean usernameExists(String username) throws SQLException {
+    public boolean usernameExists(String username) throws SQLException
+    {
         Statement st = connection.createStatement();
         ResultSet rs = st.executeQuery("SELECT EXISTS(SELECT * from LOGIN WHERE username= "
                                         + "\"" + username + "\"" + ");");
         String test = "";
-        while (rs.next()) {
+        while (rs.next())
+        {
             test = rs.getString(1);
         }
         return test.equals("1");
@@ -245,13 +258,15 @@ class Database
      *
      */
 
-    public void printCode() throws SQLException {
+    public void printCode() throws SQLException
+    {
 
         Statement stmt = connection.createStatement();
 
         String strSelect = "select * from CODE";
         ResultSet result = stmt.executeQuery(strSelect);
-        while (result.next()) {
+        while (result.next())
+        {
             System.out.println(result.getString("username") + ", "
                     + result.getString("codeval"));
         }
@@ -298,4 +313,3 @@ class Database
     }
 
 }
-

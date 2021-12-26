@@ -147,6 +147,7 @@ public class LoginController
                 }
                 else
                 {
+
                     btnLogin.setText("");
                     btnPassword.setText("");
 

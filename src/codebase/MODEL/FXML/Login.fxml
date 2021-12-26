@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #cedee0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codebase.MODEL.LoginController">
    <children>
-      <AnchorPane layoutX="1.0" prefHeight="400.0" prefWidth="600.0">
+      <AnchorPane layoutX="2.0" prefHeight="400.0" prefWidth="600.0">
          <children>
             <JFXTextField fx:id="btnLogin" alignment="CENTER" focusColor="#6f7997" labelFloat="true" layoutX="228.0" layoutY="115.0" onKeyPressed="#handleLoginEnter" prefHeight="26.0" prefWidth="145.0" promptText="Login">
                <font>
