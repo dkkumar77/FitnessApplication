@@ -54,10 +54,10 @@ public class EnterCodeController
                 Stage stage2 = new Stage();
                 stage2.setScene(new Scene(root));
                 stage2.initStyle(StageStyle.UNDECORATED);
-                stage2.setMaxHeight(200);
-                stage2.setMinHeight(200);
-                stage2.setMaxWidth(300);
-                stage2.setMinWidth(300);
+                stage2.setMaxHeight(400);
+                stage2.setMinHeight(400);
+                stage2.setMaxWidth(500);
+                stage2.setMinWidth(500);
                 ChangePasswordController controller = fxmlLoader.getController();
                 controller.initializeUsername(username);;
 
