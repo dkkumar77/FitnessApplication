@@ -28,7 +28,7 @@ public class LoginController
     private JFXHamburger hmbMenu;
 
     @FXML
-    private JFXButton btnSubmit, btnForgotPass, btnCreate;
+    private JFXButton btnSubmit, btnForgotPass, btnCreate, help;
 
     @FXML
     private Label labelUserWarning, labelPasswordWarning;
@@ -168,6 +168,22 @@ public class LoginController
         }
 
 
+    public void handleHelp(ActionEvent actionEvent) throws IOException {
+
+        if(actionEvent.getSource().equals(help)){
+
+
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("FXML/Help.fxml"));
+            javafx.scene.Parent root = loader.load();
+
+            javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
+            Scene scene = new javafx.scene.Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+
+        }
+    }
 }
 
 

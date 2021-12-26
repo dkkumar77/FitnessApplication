@@ -22,7 +22,7 @@
                </font></JFXPasswordField>
             <Label alignment="CENTER" layoutX="107.0" layoutY="51.0" prefHeight="47.0" prefWidth="388.0" text="Fitness Tracker">
                <font>
-                  <Font name="MuktaMahee Light" size="24.0" />
+                  <Font name="Menlo Regular" size="24.0" />
                </font>
             </Label>
             <JFXHamburger fx:id="hmbMenu" layoutX="14.0" layoutY="14.0" onTouchPressed="#handleHover" />
@@ -48,6 +48,11 @@
             <JFXButton fx:id="btnCreate" layoutX="243.0" layoutY="232.0" onAction="#handleCreate" prefHeight="27.0" prefWidth="115.0" text="Create Account" textFill="#65beeb">
                <font>
                   <Font size="10.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="help" layoutX="533.0" layoutY="21.0" onAction="#handleHelp" prefHeight="27.0" prefWidth="53.0" text="Help?">
+               <font>
+                  <Font size="12.0" />
                </font>
             </JFXButton>
          </children>
