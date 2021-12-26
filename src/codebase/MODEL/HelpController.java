@@ -3,31 +3,32 @@ package codebase.MODEL;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 
-public class HelpController {
+public class HelpController
+{
 
     @FXML
-    private JFXButton dgit;
+    private JFXButton btnBack, btnDgit, btnSgit;
 
     @FXML
-    private JFXButton sgit;
+    void handleBack(ActionEvent event) throws IOException
+    {
+        if(event.getSource().equals(btnBack))
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML/Login.fxml"));
+            Parent root = loader.load();
 
-    @FXML
-    private JFXButton back;
-
-    @FXML
-    void handleBack(ActionEvent event) throws IOException {
-        if(event.getSource().equals(back)){
-            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("FXML/Login.fxml"));
-            javafx.scene.Parent root = loader.load();
-
-            javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            Scene scene = new javafx.scene.Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
         }
@@ -35,25 +36,32 @@ public class HelpController {
     }
 
     @FXML
-    void handleGitOne(ActionEvent event) {
-        if(event.getSource().equals(dgit))
+    void handleDgit(ActionEvent event)
+    {
+        if(event.getSource().equals(btnDgit))
         {
-            openPage("https://github.com/dkkumar77");
+            openPage("https://www.github.com/dkkumar77");
         }
     }
 
     @FXML
-    void handleGitTwo(ActionEvent event) {
+    void handleSgit(ActionEvent event)
+    {
 
-        if(event.getSource().equals(sgit)){
-            openPage("https://github.com/shahbajsingh");
+        if(event.getSource().equals(btnSgit))
+        {
+            openPage("https://www.github.com/shahbajsingh");
         }
     }
 
-    public static void openPage(String link) {
-        try {
+    public static void openPage(String link)
+    {
+        try
+        {
             Desktop.getDesktop().browse(new URL(link).toURI());
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             e.printStackTrace();
         }
     }

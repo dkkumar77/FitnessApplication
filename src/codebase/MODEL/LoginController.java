@@ -7,13 +7,18 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.TouchEvent;
+import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class LoginController
 {
@@ -28,7 +33,7 @@ public class LoginController
     private JFXHamburger hmbMenu;
 
     @FXML
-    private JFXButton btnSubmit, btnForgotPass, btnCreate, help;
+    private JFXButton btnSubmit, btnForgotPass, btnCreate, btnHelp, btnClose;
 
     @FXML
     private Label labelUserWarning, labelPasswordWarning;
@@ -40,11 +45,11 @@ public class LoginController
         if(event.getSource().equals(btnCreate))
         {
 
-            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("FXML/CreateAccount.fxml"));
-            javafx.scene.Parent root = loader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML/CreateAccount.fxml"));
+            Parent root = loader.load();
 
-            javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            Scene scene = new javafx.scene.Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
 
@@ -90,11 +95,11 @@ public class LoginController
     {
         if(event.getSource().equals(btnForgotPass))
         {
-            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("FXML/ForgotPassword.fxml"));
-            javafx.scene.Parent root = loader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML/ForgotPassword.fxml"));
+            Parent root = loader.load();
 
-            javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            Scene scene = new javafx.scene.Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
 
@@ -102,7 +107,7 @@ public class LoginController
     }
 
     @FXML
-    void handleSubmit(ActionEvent event) throws  java.sql.SQLException, ClassNotFoundException, java.io.IOException
+    void handleSubmit(ActionEvent event) throws SQLException, ClassNotFoundException, IOException
     {
 
         Database e = new Database();
@@ -135,11 +140,11 @@ public class LoginController
                 {
 
 
-                    javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("FXML/Homepage.fxml"));
-                    javafx.scene.Parent root = loader.load();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML/Homepage.fxml"));
+                    Parent root = loader.load();
 
-                    javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-                    Scene scene = new javafx.scene.Scene(root);
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    Scene scene = new Scene(root);
                     stage.setScene(scene);
                     stage.show();
 
@@ -168,22 +173,34 @@ public class LoginController
         }
 
 
-    public void handleHelp(ActionEvent actionEvent) throws IOException {
+    @FXML
+    public void handleHelp(ActionEvent actionEvent) throws IOException
+    {
 
-        if(actionEvent.getSource().equals(help)){
+        if(actionEvent.getSource().equals(btnHelp))
+        {
 
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML/Help.fxml"));
+            Parent root = loader.load();
 
-            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("FXML/Help.fxml"));
-            javafx.scene.Parent root = loader.load();
-
-            javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
-            Scene scene = new javafx.scene.Scene(root);
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
 
 
         }
     }
+
+    @FXML
+    public void handleClose(ActionEvent actionEvent) throws IOException
+    {
+        if(actionEvent.getSource().equals(btnClose))
+        {
+            System.exit(0);
+        }
+    }
+
 }
 
 

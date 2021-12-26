@@ -118,6 +118,7 @@ class Database {
         }
         return null;
     }
+    
     /**
      *
      * @param username

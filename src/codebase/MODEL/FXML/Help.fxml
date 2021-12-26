@@ -5,20 +5,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #cedee0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codebase.MODEL.HelpController">
    <children>
-      <JFXTextArea editable="false" focusColor="#cedee0" layoutX="51.0" layoutY="36.0" text="This application was created in order for users to log and track their weight..... (add more)&#10;" unFocusColor="#cedee0" />
-      <JFXButton fx:id="dgit" layoutX="81.0" layoutY="257.0" onAction="#handleGitOne" text="Deepak's Github">
+      <JFXTextArea editable="false" focusColor="#cedee0" layoutX="39.0" layoutY="72.0" prefHeight="141.0" prefWidth="523.0" text="DSFitness Tracker was created in order to help users log their calorie intake by serving size and allow them to track their weight across a given period of time in order to meet a goal standard. As we progress in building this application, we hope to create a seamless experience that provides our userbase the tool they need to hold themselves accountable.&#10;" unFocusColor="#cedee0">
          <font>
-            <Font name="Menlo Regular" size="13.0" />
+            <Font name="Menlo Regular" size="14.0" />
+         </font></JFXTextArea>
+      <JFXButton fx:id="btnDgit" layoutX="17.0" layoutY="360.0" onAction="#handleDgit" text="deepak kumar">
+         <font>
+            <Font name="Menlo Regular" size="10.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="sgit" layoutX="77.0" layoutY="296.0" onAction="#handleGitTwo" text="Shahbaj's Github">
+      <JFXButton fx:id="btnSgit" layoutX="493.0" layoutY="360.0" onAction="#handleSgit" text="shahbaj singh">
          <font>
-            <Font name="Menlo Regular" size="13.0" />
+            <Font name="Menlo Regular" size="10.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="back" layoutX="14.0" layoutY="14.0" onAction="#handleBack" text="Back" />
+      <JFXButton fx:id="btnBack" layoutX="14.0" layoutY="14.0" onAction="#handleBack" text="Back" />
    </children>
 </AnchorPane>
