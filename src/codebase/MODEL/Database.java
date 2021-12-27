@@ -32,8 +32,7 @@ class Database {
             stmt.executeUpdate("CREATE DATABASE FitnessData");
             this.connection = DriverManager.getConnection(DB_URL + "FitnessData", USER, PASS);
             Statement st = connection.createStatement();
-            st.executeUpdate("CREATE TABLE LOGIN (username VARCHAR(255), password VARCHAR(255), " +
-                    "email VARCHAR(255), dob VARCHAR(255), firstname VARCHAR(255), lastname VARCHAR(255))");
+            st.executeUpdate("CREATE TABLE LOGIN (username VARCHAR(255), password VARCHAR(255), email VARCHAR(255), dob VARCHAR(255), firstname VARCHAR(255), lastname VARCHAR(255))");
             st.executeUpdate("CREATE TABLE CODE(username VARCHAR(255), codeval VARCHAR(255))");
         } catch (SQLException e)
         {

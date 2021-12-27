@@ -21,8 +21,7 @@ import java.util.Properties;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class ForgotPasswordController
-{
+public class ForgotPasswordController {
 
     @FXML
     private JFXTextField username;
@@ -60,56 +59,33 @@ public class ForgotPasswordController
 
     }
 
-
     @FXML
     void handleSubmit(ActionEvent actionEvent) throws IOException, ClassNotFoundException, SQLException, MessagingException
     {
-
-
         if (actionEvent.getSource().equals(submit))
         {
-
             Database e = new Database();
-            if (e.usernameExists(username.getText()))
-            {
 
+            if (e.usernameExists(username.getText())) {
                 String email = e.getEmail(username.getText());
-
                 Properties properties = new Properties();
-
                 properties.put("mail.smtp.auth", "true");
                 properties.put("mail.smtp.starttls.enable", "true");
                 properties.put("mail.smtp.host", "smtp.gmail.com");
                 properties.put("mail.smtp.port", "587");
                 properties.put("mail.smtp.starttls.enable", "true");
-
-
                 String sender = "DSFitnessApp@gmail.com";
                 String senderPassword = "Tyrantboys64!";
-
                 Session session = Session.getInstance(properties, new Authenticator() {
-                    @Override
-                    protected PasswordAuthentication getPasswordAuthentication() {
+                    @Override protected PasswordAuthentication getPasswordAuthentication() {
                         return new PasswordAuthentication(sender, senderPassword);
-                    }
-                });
-
-
+                    }});
                 String new_code = String.valueOf(new Random().nextInt(999999));
-
-
-
-
-                Message message = message(session, email,new_code );
-                e.updateCode(username.getText(),new_code);
-
-
-
+                Message message = message(session, email, new_code);
+                e.updateCode(username.getText(), new_code);
                 Transport.send(message);
-                
-
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXML/EnterCode.fxml"));
-                Parent root = (Parent) fxmlLoader.load();
+                Parent root = fxmlLoader.load();
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root));
                 stage.initStyle(StageStyle.UNDECORATED);
@@ -119,23 +95,12 @@ public class ForgotPasswordController
                 stage.setMinWidth(300);
                 EnterCodeController controller = fxmlLoader.getController();
                 controller.setValue(username.getText());
-
-
-
                 AtomicReference<Double> xOffset = new AtomicReference<>((double) 0);
                 AtomicReference<Double> yOffset = new AtomicReference<>((double) 0);
-                root.setOnMousePressed(event -> {
-                    xOffset.set(event.getSceneX());
-                    yOffset.set(event.getSceneY());
-                });
-                //move around here
-                root.setOnMouseDragged(event -> {
-                    stage.setX(event.getScreenX() - xOffset.get());
-                    stage.setY(event.getScreenY() - yOffset.get());
-                });
+                root.setOnMousePressed(event -> { xOffset.set(event.getSceneX()); yOffset.set(event.getSceneY()); });
+                root.setOnMouseDragged(event -> { stage.setX(event.getScreenX() - xOffset.get());stage.setY(event.getScreenY() - yOffset.get()); });
                 stage.initModality(Modality.APPLICATION_MODAL);
                 stage.show();
-
             }
         }
 
@@ -143,21 +108,15 @@ public class ForgotPasswordController
 
     private Message message(Session session, String receiver, String code)
     {
-        try
-        {
-            Message message = new MimeMessage(session);
+        try { Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("DSFitnessApp@gmail.com"));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(receiver));
             message.setSubject("Verify Email");
             message.setText("Code is:  \n" + code);
             return message;
         } catch (MessagingException e)
-        {
-            e.printStackTrace();
-        }
+        { e.printStackTrace(); }
         return null;
     }
-
-
 
 }
