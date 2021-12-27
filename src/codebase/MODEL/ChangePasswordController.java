@@ -37,7 +37,7 @@ public class ChangePasswordController
             if (txtNewPassword.getText().equals(txtConfirmPassword.getText()))
             {
                 Database e = new Database();
-                e.updatePassword(username, txtNewPassword.getText());
+                e.updatePassword(username, new codebase.MODEL.BCrypt().hashPass(txtNewPassword.getText()));
                 Stage stage = (Stage) btnClose.getScene().getWindow();
                 stage.close();
             }

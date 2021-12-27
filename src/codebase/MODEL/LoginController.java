@@ -1,6 +1,7 @@
 package codebase.MODEL;
 
 import animatefx.animation.Wobble;
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXPasswordField;
@@ -136,7 +137,7 @@ public class LoginController
                  * VALIDATION
                  */
 
-                if(btnPassword.getText().equals(e.getPassword(btnLogin.getText())))
+                if(new codebase.MODEL.BCrypt().hashPass(btnPassword.getText()).equals(e.getPassword(btnLogin.getText())))
                 {
 
 
