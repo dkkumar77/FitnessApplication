@@ -275,7 +275,7 @@ class Database {
 
     public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
             Database e = new Database();
-e.print();
+            e.print();
     }
 }
 

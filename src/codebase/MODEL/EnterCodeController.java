@@ -17,15 +17,13 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class EnterCodeController
 {
-
     @FXML
     private JFXButton close, submit;
-
 
     @FXML
     private JFXTextField code;
 
-    String username;
+    private String username;
 
 
     @FXML
@@ -84,10 +82,7 @@ public class EnterCodeController
 
     }
 
-    public void setValue(String username)
-    {
+    public void setValue(String username) {
         this.username = username;
     }
-
-
 }
