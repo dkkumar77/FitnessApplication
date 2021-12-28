@@ -9,35 +9,35 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #cedee0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codebase.MODEL.CreateAccountController">
+<AnchorPane fx:id="root" onKeyPressed="#handleKeys" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #cedee0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codebase.MODEL.CreateAccountController">
    <children>
-      <JFXTextField fx:id="txtFirstName" alignment="CENTER" labelFloat="true" layoutX="70.0" layoutY="67.0" prefHeight="29.0" prefWidth="187.0" promptText="First Name">
+      <JFXTextField fx:id="txtFirstName" alignment="CENTER" labelFloat="true" layoutX="70.0" layoutY="67.0" onKeyPressed="#handleKeys" prefHeight="29.0" prefWidth="187.0" promptText="First Name">
          <font>
             <Font name="Menlo Regular" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtLastName" alignment="CENTER" labelFloat="true" layoutX="70.0" layoutY="132.0" prefHeight="29.0" prefWidth="187.0" promptText="Last Name">
+      <JFXTextField fx:id="txtLastName" alignment="CENTER" labelFloat="true" layoutX="70.0" layoutY="132.0" onKeyPressed="#handleKeys" prefHeight="29.0" prefWidth="187.0" promptText="Last Name">
          <font>
             <Font name="Menlo Regular" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtEmail" alignment="CENTER" labelFloat="true" layoutX="70.0" layoutY="200.0" prefHeight="29.0" prefWidth="187.0" promptText="Email">
+      <JFXTextField fx:id="txtEmail" alignment="CENTER" labelFloat="true" layoutX="70.0" layoutY="200.0" onKeyPressed="#handleKeys" prefHeight="29.0" prefWidth="187.0" promptText="Email">
          <font>
             <Font name="Menlo Regular" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtUsername" alignment="CENTER" labelFloat="true" layoutX="325.0" layoutY="67.0" prefHeight="29.0" prefWidth="187.0" promptText="Username">
+      <JFXTextField fx:id="txtUsername" alignment="CENTER" labelFloat="true" layoutX="325.0" layoutY="67.0" onKeyPressed="#handleKeys" prefHeight="29.0" prefWidth="187.0" promptText="Username">
          <font>
             <Font name="Menlo Regular" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXPasswordField fx:id="txtPassword" alignment="CENTER" labelFloat="true" layoutX="325.0" layoutY="134.0" prefHeight="26.0" prefWidth="187.0" promptText="Password">
+      <JFXPasswordField fx:id="txtPassword" alignment="CENTER" labelFloat="true" layoutX="325.0" layoutY="134.0" onKeyPressed="#handleKeys" prefHeight="26.0" prefWidth="187.0" promptText="Password">
          <font>
             <Font name="Menlo Regular" size="12.0" />
          </font>
       </JFXPasswordField>
-      <JFXDatePicker fx:id="txtDOB" layoutX="385.0" layoutY="202.0" prefHeight="27.0" prefWidth="121.0" promptText="Date of Birth" showWeekNumbers="true" />
-      <JFXButton fx:id="btnSubmit" layoutX="263.0" layoutY="286.0" onAction="#handleSubmit" prefHeight="27.0" prefWidth="76.0" text="Submit">
+      <JFXDatePicker fx:id="txtDOB" layoutX="385.0" layoutY="202.0" onKeyPressed="#handleKeys" prefHeight="27.0" prefWidth="121.0" promptText="Date of Birth" showWeekNumbers="true" />
+      <JFXButton fx:id="btnSubmit" layoutX="263.0" layoutY="286.0" onAction="#handleSubmit" onKeyPressed="#handleKeys" prefHeight="27.0" prefWidth="76.0" text="Submit">
          <font>
             <Font name="Menlo Regular" size="14.0" />
          </font>
@@ -57,6 +57,11 @@
             <Font name="Menlo Regular" size="16.0" />
          </font>
       </Label>
-      <JFXCheckBox fx:id="optDOB" layoutX="430.0" layoutY="248.0" onAction="#handleOptDOB" text="Opt DOB" />
+      <JFXCheckBox fx:id="optDOB" layoutX="430.0" layoutY="248.0" onAction="#handleOptDOB" onKeyPressed="#handleKeys" text="Opt DOB" />
+      <Label alignment="CENTER" layoutX="67.0" layoutY="60.0" style="-fx-background-color: #cedee0;" text="*" textFill="RED" />
+      <Label alignment="CENTER" layoutX="322.0" layoutY="60.0" style="-fx-background-color: #cedee0;" text="*" textFill="RED" />
+      <Label alignment="CENTER" layoutX="67.0" layoutY="124.0" style="-fx-background-color: #cedee0;" text="*" textFill="RED" />
+      <Label alignment="CENTER" layoutX="322.0" layoutY="124.0" style="-fx-background-color: #cedee0;" text="*" textFill="RED" />
+      <Label alignment="CENTER" layoutX="67.0" layoutY="192.0" style="-fx-background-color: #cedee0;" text="*" textFill="RED" />
    </children>
 </AnchorPane>

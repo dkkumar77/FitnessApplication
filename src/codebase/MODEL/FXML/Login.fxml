@@ -10,13 +10,13 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #cedee0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codebase.MODEL.LoginController">
    <children>
-      <AnchorPane layoutX="2.0" prefHeight="400.0" prefWidth="600.0">
+      <AnchorPane fx:id="root" layoutX="2.0" onKeyPressed="#handleKeys" prefHeight="400.0" prefWidth="600.0">
          <children>
-            <JFXTextField fx:id="btnLogin" alignment="CENTER" focusColor="#6f7997" labelFloat="true" layoutX="228.0" layoutY="115.0" onKeyPressed="#handleLoginEnter" prefHeight="26.0" prefWidth="145.0" promptText="Login">
+            <JFXTextField fx:id="btnLogin" alignment="CENTER" focusColor="#6f7997" labelFloat="true" layoutX="228.0" layoutY="115.0" onKeyPressed="#handleKeys" prefHeight="26.0" prefWidth="145.0" promptText="Login">
                <font>
                   <Font name="Menlo Regular" size="13.0" />
                </font></JFXTextField>
-            <JFXPasswordField fx:id="btnPassword" alignment="CENTER" labelFloat="true" layoutX="228.0" layoutY="173.0" onKeyPressed="#handlePasswordEnter" prefHeight="26.0" prefWidth="145.0" promptText="Password">
+            <JFXPasswordField fx:id="btnPassword" alignment="CENTER" labelFloat="true" layoutX="228.0" layoutY="173.0" onKeyPressed="#handleKeys" prefHeight="26.0" prefWidth="145.0" promptText="Password">
                <font>
                   <Font name="Menlo Regular" size="13.0" />
                </font></JFXPasswordField>
@@ -26,11 +26,11 @@
                </font>
             </Label>
             <JFXHamburger fx:id="hmbMenu" layoutX="14.0" layoutY="14.0" onTouchPressed="#handleHover" />
-            <JFXButton fx:id="btnSubmit" layoutX="387.0" layoutY="208.0" onAction="#handleSubmit" text="Submit">
+            <JFXButton fx:id="btnSubmit" layoutX="387.0" layoutY="208.0" onAction="#handleSubmit" onKeyPressed="#handleKeys" text="Submit">
                <font>
                   <Font name="Menlo Regular" size="13.0" />
                </font></JFXButton>
-            <JFXButton fx:id="btnForgotPass" layoutX="256.0" layoutY="211.0" onAction="#handleForgotPass" text="Forgot Password?" textFill="#65beeb">
+            <JFXButton fx:id="btnForgotPass" layoutX="256.0" layoutY="211.0" onAction="#handleForgotPass" onKeyPressed="#handleForgotKeys" text="Forgot Password?" textFill="#65beeb">
                <font>
                   <Font size="10.0" />
                </font>
@@ -45,7 +45,7 @@
                   <Font name="Menlo Regular" size="10.0" />
                </font>
             </Label>
-            <JFXButton fx:id="btnCreate" layoutX="243.0" layoutY="232.0" onAction="#handleCreate" prefHeight="27.0" prefWidth="115.0" text="Create Account" textFill="#65beeb">
+            <JFXButton fx:id="btnCreate" layoutX="243.0" layoutY="232.0" onAction="#handleCreate" onKeyPressed="#handleCreateKeys" prefHeight="27.0" prefWidth="115.0" text="Create Account" textFill="#65beeb">
                <font>
                   <Font size="10.0" />
                </font>

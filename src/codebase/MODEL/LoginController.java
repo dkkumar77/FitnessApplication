@@ -16,12 +16,16 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.TouchEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
 public class LoginController {
+
+    @FXML
+    private AnchorPane root;
 
     @FXML
     private JFXTextField btnLogin;
@@ -37,7 +41,6 @@ public class LoginController {
 
     @FXML
     private Label labelUserWarning, labelPasswordWarning;
-
 
     @FXML
     void handleCreate(ActionEvent event) throws IOException {
@@ -56,41 +59,43 @@ public class LoginController {
 
 
     @FXML
-    void handlePasswordEnter(KeyEvent event) throws SQLException, IOException, ClassNotFoundException {
+    void handleKeys(KeyEvent event) throws SQLException, IOException, ClassNotFoundException {
 
         if (event.getCode().equals(KeyCode.ENTER)) {
-
-
             btnSubmit.fire();
-
-
-
         }
 
         if(event.getCode().equals(KeyCode.ESCAPE)){
-
             btnClose.fire();
+        }
 
+        if(event.getCode().equals(KeyCode.SLASH)){
+            btnHelp.fire();
         }
 
     }
 
     @FXML
-    void handleLoginEnter(KeyEvent event) throws SQLException, IOException, ClassNotFoundException {
-
-        if (event.getCode().equals(KeyCode.ENTER)) {
-                btnSubmit.fire();
-
-
+    void handleForgotKeys(KeyEvent event){
+        if(event.getCode().equals(KeyCode.ENTER)){
+            btnForgotPass.fire();
         }
-
 
         if(event.getCode().equals(KeyCode.ESCAPE)){
-
-            btnClose.fire();
-
+            root.setFocusTraversable(true);
         }
 
+    }
+
+    @FXML
+    void handleCreateKeys(KeyEvent event){
+        if(event.getCode().equals(KeyCode.ENTER)){
+            btnCreate.fire();
+        }
+
+        if(event.getCode().equals(KeyCode.ESCAPE)){
+            root.setFocusTraversable(true);
+        }
 
     }
 
@@ -133,7 +138,6 @@ public class LoginController {
 
             }
         }
-
 
         /**
          * VALIDATION

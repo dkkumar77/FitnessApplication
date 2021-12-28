@@ -12,11 +12,13 @@ class Database {
     final String USER = "root";
     final String PASS = "Tyrantboys1";
 
+    /**
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     Database() throws SQLException, ClassNotFoundException
     {
         connect();
-
-
     }
 
     /**
@@ -141,8 +143,12 @@ class Database {
     }
 
 
-
-
+    /**
+     *
+     * @param username
+     * @return
+     * @throws SQLException
+     */
     public String getFirstName(String username) throws SQLException {
         if (usernameExists(username)) {
             Statement rs = connection.createStatement();
@@ -159,7 +165,7 @@ class Database {
     /**
      *
      * @param username
-     * @return
+     * @return Last Name
      * @throws SQLException
      */
     public String getLastName(String username) throws SQLException {
@@ -272,9 +278,10 @@ class Database {
 
     }
 
-    public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
-            Database e = new Database();
-            e.print();
+    public static void main(String[] args) throws SQLException, ClassNotFoundException{
+        Database e = new Database();
+        e.print();
     }
+
 }
 

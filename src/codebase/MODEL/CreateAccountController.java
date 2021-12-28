@@ -3,19 +3,27 @@ package codebase.MODEL;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.jfoenix.controls.*;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.effect.Glow;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.security.Key;
 import java.sql.SQLException;
 
 
 public class CreateAccountController {
+
+    @FXML
+    private AnchorPane root;
 
     @FXML
     private JFXTextField txtFirstName, txtLastName, txtEmail, txtUsername;
@@ -36,56 +44,61 @@ public class CreateAccountController {
     private JFXCheckBox optDOB;
 
 
+
+
     public void handleSubmit(javafx.event.ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
 
 
         if (event.getSource().equals(btnSubmit)) {
 
-            if (txtFirstName.getText().equals("") || txtLastName.getText().equals("") || txtEmail.getText().equals("")
-                    || txtPassword.getText().equals("") || txtUsername.getText().equals("")) {
-                warning.setVisible(true);
-            } else {
+            if (!emptyFields()){
+
                 Database e = new Database();
 
+                if (!optDOB.isSelected()) {                             // if DOB is not opted out
 
-                if (!optDOB.isSelected()) {
-                    if (!txtDOB.getValue().toString().equals("")) {
+                    if (txtDOB.getValue() != null){   // if DOB is not empty
 
+                        if (verifyEmail(txtEmail.getText())) {          // if email is verified
 
-                        if (verifyEmail(txtEmail.getText())) {
-
-
-
-                            e.addData(txtUsername.getText(),
-                                    new codebase.MODEL.BCrypt().hashPass(txtPassword.getText()), txtEmail.getText(),
-                                    txtDOB.getValue().toString(), txtFirstName.getText(),
+                            e.addData(txtUsername.getText(),            // store data
+                                    new codebase.MODEL.BCrypt().hashPass(txtPassword.getText()),
+                                    txtEmail.getText(), txtDOB.getValue().toString(), txtFirstName.getText(),
                                     txtLastName.getText());
 
-
-                            changeScene(event);
-
+                            changeScene(event);     // return to login
+                        } else {    // else email is not verified
+                            warning.setText("Invalid email address");
+                            warning.setVisible(true);
                         }
                     } else {
-
+                        warning.setText("DOB cannot be empty");
                         warning.setVisible(true);
-
                     }
-                } else {
+                } else {    // else DOB is opted out
 
-                    e.addData(txtUsername.getText(),
+                    e.addData(txtUsername.getText(),    // store DOB as null
                             new codebase.MODEL.BCrypt().hashPass(txtPassword.getText()), txtEmail.getText(),
-                            "0", txtFirstName.getText(),
+                            null, txtFirstName.getText(),
                             txtLastName.getText());
                     changeScene(event);
 
-
                 }
-
             }
-        } else {
-            warning.setVisible(true);
+            else
+            {
+                warning.setText("Required fields cannot be empty");
+                warning.setVisible(true);
+            }
         }
 
+    }
+
+    public boolean emptyFields()
+    {
+        return (txtFirstName.getText().equals("") || txtLastName.getText().equals("")
+                || txtEmail.getText().equals("")  || txtPassword.getText().equals("")
+                || txtUsername.getText().equals(""));
     }
 
     private void changeScene(ActionEvent event) throws IOException {
@@ -98,6 +111,17 @@ public class CreateAccountController {
         stage.setScene(scene);
         stage.show();
 
+    }
+
+    @FXML
+    void handleKeys(KeyEvent event){
+        if(event.getCode().equals(KeyCode.ENTER)){
+            btnSubmit.fire();
+        }
+
+        if(event.getCode().equals(KeyCode.ESCAPE)){
+            btnBack.fire();
+        }
     }
 
 
@@ -117,12 +141,11 @@ public class CreateAccountController {
     }
 
     @FXML
-    public void handleBack(javafx.event.ActionEvent actionEvent) throws IOException {
-
-
-        changeScene(actionEvent);
-
-
+    public void handleBack(ActionEvent actionEvent) throws IOException {
+        if(actionEvent.getSource().equals(btnBack))
+        {
+            changeScene(actionEvent);
+        }
     }
 
     public void handleOptDOB(javafx.event.ActionEvent actionEvent) {
