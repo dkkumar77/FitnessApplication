@@ -1,7 +1,6 @@
 package codebase.MODEL;
 
 import animatefx.animation.Wobble;
-import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXPasswordField;

@@ -1,5 +1,4 @@
 package codebase.MODEL;
-import at.favre.lib.crypto.bcrypt.BCrypt;
 
 import java.io.IOException;
 import java.sql.*;
@@ -272,11 +271,14 @@ class Database {
         }
     }
 
+    /*
     public void encrypt(String txtPassword){
         String ea = BCrypt.withDefaults().hash(10, txtPassword.toString().toCharArray()).toString();
         System.out.println(ea);
 
     }
+
+     */
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException{
         Database e = new Database();

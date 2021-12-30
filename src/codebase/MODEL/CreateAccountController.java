@@ -1,6 +1,5 @@
 package codebase.MODEL;
 
-import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.jfoenix.controls.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -52,45 +51,62 @@ public class CreateAccountController {
         if (event.getSource().equals(btnSubmit)) {
 
             if (!emptyFields()){
-
                 Database e = new Database();
 
-                if (!optDOB.isSelected()) {                             // if DOB is not opted out
 
-                    if (txtDOB.getValue() != null){   // if DOB is not empty
+                if (verifyEmail(txtEmail.getText())) {
 
-                        if (verifyEmail(txtEmail.getText())) {          // if email is verified
+                    if (!optDOB.isSelected()) {
 
-                            e.addData(txtUsername.getText(),            // store data
-                                    new codebase.MODEL.BCrypt().hashPass(txtPassword.getText()),
-                                    txtEmail.getText(), txtDOB.getValue().toString(), txtFirstName.getText(),
-                                    txtLastName.getText());
+                        if (Integer.parseInt(txtDOB.getValue().toString().substring(0, 4)) < 2010
+                                && Integer.parseInt(txtDOB.getValue().toString().substring(0, 4)) >= 1965) {
+                            if (!txtDOB.getValue().toString().equals("")) {
 
-                            changeScene(event);     // return to login
-                        } else {    // else email is not verified
-                            warning.setText("Invalid email address");
+
+                                if (verifyEmail(txtEmail.getText())) {
+                                    e.addData(txtUsername.getText(),
+                                            new codebase.MODEL.BCrypt().hashPass(txtPassword.getText()), txtEmail.getText(),
+                                            txtDOB.getValue().toString(), txtFirstName.getText(),
+                                            txtLastName.getText());
+                                    changeScene(event);
+                                }
+
+                            } else {
+                                warning.setText("DOB is empty");
+                                warning.setVisible(true);
+
+                            }
+
+
+                        } else {
+                            warning.setText("Invalid Date");
                             warning.setVisible(true);
+
                         }
+
                     } else {
-                        warning.setText("DOB cannot be empty");
-                        warning.setVisible(true);
+
+                        e.addData(txtUsername.getText(),
+                                new codebase.MODEL.BCrypt().hashPass(txtPassword.getText()), txtEmail.getText(),
+                                "0", txtFirstName.getText(),
+                                txtLastName.getText());
+                        changeScene(event);
+
+
                     }
-                } else {    // else DOB is opted out
-
-                    e.addData(txtUsername.getText(),    // store DOB as null
-                            new codebase.MODEL.BCrypt().hashPass(txtPassword.getText()), txtEmail.getText(),
-                            null, txtFirstName.getText(),
-                            txtLastName.getText());
-                    changeScene(event);
-
                 }
+                else{
+                    warning.setText("Email isn't correct");
+                    warning.setVisible(true);
+                }
+
+
             }
-            else
-            {
-                warning.setText("Required fields cannot be empty");
-                warning.setVisible(true);
-            }
+        } else {
+            warning.setText("Empty Fields");
+            warning.setVisible(true);
         }
+
 
     }
 
